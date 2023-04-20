@@ -28,7 +28,7 @@ namespace NEAT
             this.y = y;
         }
 
-        public bool Equals(object other)
+        public override bool Equals(object other)
         {
             if (other == null || !(other is NodeGene))
             {

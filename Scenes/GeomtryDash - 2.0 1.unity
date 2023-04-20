@@ -527,7 +527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numClients: 100
   gameTime: 10
-  gameManagerPrefab: {fileID: 6073686783177276784, guid: bcd82bb99dceb244fb895116a99db63a, type: 3}
+  gameManagerPrefab: {fileID: 1378574889694851055, guid: 9863ad1109d459b49abad27f738c4193, type: 3}
 --- !u!4 &388998829
 Transform:
   m_ObjectHideFlags: 0

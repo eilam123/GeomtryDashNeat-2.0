@@ -30,6 +30,10 @@ namespace NEAT
         {
             Reset(inputSize, outputSize, clients);
         }
+        public RandomHashSet<Client> GetClients()
+        {
+            return clients;
+        }
         public Client GetBestClient()
         {
             int best = 0;
@@ -40,8 +44,10 @@ namespace NEAT
                     best = i;
                 }
             }
+
             return clients.Get(best);
         }
+
         public Genome EmptyGenom()
         {
             Genome g = new Genome(this);
@@ -132,6 +138,7 @@ namespace NEAT
         {
             allConnections[new ConnectionGene(node1, node2)].SetReplaceIndex(index);
         }
+
         public int GetReplaceIndex(NodeGene node1, NodeGene node2)
         {
             ConnectionGene con = new ConnectionGene(node1, node2);
@@ -165,7 +172,7 @@ namespace NEAT
         {
             return WIEGHT_RANDOM_STRENGTH;
         }
-
+        
         public double GetPROBABILITY_MUTATE_LINK()
         {
             return PROBABILITY_MUTATE_LINK;
@@ -189,6 +196,31 @@ namespace NEAT
         public double GetPROBABILITY_MUTATE_TOGGLE_LINK()
         {
             return PROBABILITY_MUTATE_TOGGLE_LINK;
+        }
+        
+        public void SetPROBABILITY_MUTATE_LINK(double PROBABILITY_MUTATE_LINK)
+        {
+            this.PROBABILITY_MUTATE_LINK = PROBABILITY_MUTATE_LINK;
+        }
+        
+        public void SetPROBABILITY_MUTATE_NODE(double PROBABILITY_MUTATE_NODE)
+        {
+            this.PROBABILITY_MUTATE_NODE = PROBABILITY_MUTATE_NODE;
+        }
+        
+        public void SetPROBABILITY_MUTATE_WEIGHT_SHIFT(double PROBABILITY_MUTATE_WEIGHT_SHIFT)
+        {
+            this.PROBABILITY_MUTATE_WEIGHT_SHIFT = PROBABILITY_MUTATE_WEIGHT_SHIFT;
+        }
+        
+        public void SetPROBABILITY_MUTATE_WEIGHT_RANDOM(double PROBABILITY_MUTATE_WEIGHT_RANDOM)
+        {
+            this.PROBABILITY_MUTATE_WEIGHT_RANDOM = PROBABILITY_MUTATE_WEIGHT_RANDOM;
+        }
+        
+        public void SetSURVIVORS(double SURVIVORS)
+        {
+            this.SURVIVORS = SURVIVORS;
         }
 
         public double GetCP()
@@ -292,6 +324,10 @@ namespace NEAT
             {
                 c.Mutate();
             }
+        }
+        public int GetMaxClients()
+        {
+            return maxClients;
         }
     }
 }

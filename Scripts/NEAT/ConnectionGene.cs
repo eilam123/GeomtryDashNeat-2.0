@@ -63,8 +63,8 @@ namespace NEAT
         {
             return enabled;
         }
-
-        public bool Equals(object other)
+        
+        public override bool Equals(object other)
         {
             if (other == null || !(other is ConnectionGene))
             {

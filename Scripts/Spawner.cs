@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     public GameObject prefabs;
     public float minSpawnRate = 1f;
     public float maxSpawnRate = 2f;
+    public GameManager gameManager; // Add a GameManager reference
     
     private void OnEnable()
     {
@@ -22,6 +23,8 @@ public class Spawner : MonoBehaviour
     {
         GameObject obstacle = Instantiate(prefabs);
         obstacle.transform.position += transform.position;
+        Obstacle obstacleScript = obstacle.GetComponent<Obstacle>();
+        obstacleScript.gameManager = gameManager; // Set the GameManager reference for the Obstacle instance
         Invoke(nameof(Spawn), Random.Range(minSpawnRate, maxSpawnRate));
     }
 }
